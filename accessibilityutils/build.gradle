@@ -24,19 +24,17 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-//    compile 'com.bbsz.sky2:smallWeb:1.0.1'
-//    compile 'com.bbsz.sky:WebViewUI:1.0.3'
 }
 
-
+//gradlew install
+//gradlew bintrayUpload
 
 ext {
     bintrayRepo = 'maven'
-    bintrayName = 'accessibilityutils'                                //项目名字
+    bintrayName = 'fzhelper'                                //项目名字
 
-    publishedGroupId = 'com.bbsz.accessibilityutils'                //GroupId,这个要别人引用的时候会用到，
-    libraryName = 'accessibilityutils'                         //这个是项目名字
+    publishedGroupId = 'org.didd.dev'                //GroupId,这个要别人引用的时候会用到，
+    libraryName = 'fzhelper'                         //这个是项目名字
     artifact = 'accessibilityutils'                                   //artifactId，这个也是别人引用的时候，会用到，它要和Module名字一样
 
     libraryDescription = 'Accessibility Utils'       //项目描述
@@ -45,15 +43,13 @@ ext {
     gitUrl = 'https://github.com/Jiangxuewu/AccessibilityUtils.git'       //分享后的项目git地址
 
     libraryVersion = '1.0.0'
-    developerId = 'com.bb-sz.dev'                             //这个开发者id，自己写
+    developerId = 'org.didd.dev'                             //这个开发者id，自己写
     developerName = 'skycar'                           //这个是开发者名字
     developerEmail = 'dev@bb-sz.com'                    //开发者邮箱
 
     licenseName = 'The Apache Software License, Version 2.0'     //开源协议
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
-    user="${bintrayUser}"
-    apikey="${bintrayApikey}"
 }
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'

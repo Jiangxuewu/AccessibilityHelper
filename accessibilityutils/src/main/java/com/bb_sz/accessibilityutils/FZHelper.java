@@ -21,16 +21,15 @@ import java.util.List;
  */
 
 public class FZHelper {
-
     private static final String TAG = FZHelper.class.getSimpleName();
     private static final boolean debug = true;
 
     /**
-     * 根据控件文字查找控件
+     * Control text lookup control based on control text
      *
      * @param service AccessibilityService
-     * @param txt     文字内容
-     * @return 成功与失败
+     * @param txt     Text content
+     * @return Success and failure
      */
     public static List<AccessibilityNodeInfo> getNodesForTxt(AccessibilityService service, String txt) {
         if (null == service || TextUtils.isEmpty(txt)) return null;
@@ -40,11 +39,11 @@ public class FZHelper {
     }
 
     /**
-     * 根据控件ID查找控件， ListView中Item的控件id是重复的。
+     * According to the View's ID lookup control, The View's ID of Item in ListView is repeated.
      *
      * @param service AccessibilityService
-     * @param id      控件id
-     * @return 成功与失败
+     * @param id      View's id
+     * @return Success and failure
      */
     public static List<AccessibilityNodeInfo> getNodesForId(AccessibilityService service, String id) {
         if (null == service || TextUtils.isEmpty(id)) return null;
@@ -58,22 +57,22 @@ public class FZHelper {
 
     /**
      * @param service AccessibilityService
-     * @param id      控件id
-     * @param txt     输入的文字内容
-     * @return 成功与失败
+     * @param id      View's id
+     * @param txt     Input text content
+     * @return Success and failure
      */
     public static boolean edittextInputById(AccessibilityService service, String id, String txt) {
         return edittextInputById(service, id, txt, 0);
     }
 
     /**
-     * 给EditText控件输入文字
+     * Input text to the EditText control
      *
      * @param service AccessibilityService
-     * @param id      控件id
-     * @param txt     输入的文字内容
-     * @param index   相同id控件时， 第index个edittext输入文字； -1则表示给所有的edittext输入文字。
-     * @return 成功与失败
+     * @param id      View's id
+     * @param txt     Input text content
+     * @param index   When the same ID control is used, the index EditText enters the text; the -1 represents all the EditText input text.
+     * @return Success and failure
      */
     public static boolean edittextInputById(AccessibilityService service, String id, String txt, int index) {
         if (debug) Log.d(TAG, "edittextInputById(), id = " + id + ", txt = " + txt);
@@ -107,11 +106,11 @@ public class FZHelper {
     }
 
     /**
-     * 点击Button控件
+     * Click Button View.
      *
      * @param service AccessibilityService
-     * @param id      控件ID
-     * @return 成功与失败
+     * @param id      View's id
+     * @return Success and failure
      */
     public static boolean buttonClick(AccessibilityService service, String id) {
         if (debug) Log.d(TAG, "buttonClick(), id = " + id);
@@ -133,11 +132,11 @@ public class FZHelper {
     }
 
     /**
-     * 根据控件id，执行点击事件
+     * According to the control ID, execute the click event
      *
      * @param service AccessibilityService
-     * @param id      控件id
-     * @return 成功与失败
+     * @param id      View's id
+     * @return Success and failure
      */
     public static boolean viewClickById(AccessibilityService service, String id) {
         if (debug) Log.d(TAG, "viewClickById(), id = " + id);
@@ -161,11 +160,11 @@ public class FZHelper {
     }
 
     /**
-     * 给View的子View执行点击事件
+     * Execute the click event for the child View of View
      *
      * @param service AccessibilityService
      * @param id      View id
-     * @return 成功与失败
+     * @return Success and failure
      */
     public static boolean viewChildClickForId(AccessibilityService service, String id) {
         if (debug) Log.d(TAG, "viewChildClickForId(), id = " + id);
@@ -192,11 +191,11 @@ public class FZHelper {
     }
 
     /**
-     * 根据文字执行点击事件
+     * Execute click events based on text
      *
      * @param service AccessibilityService
-     * @param txt     文字
-     * @return 成功与失败
+     * @param txt     Text
+     * @return Success and failure
      */
     public static boolean viewClickByTxt(AccessibilityService service, String txt) {
         if (debug) Log.d(TAG, "viewClickFroTxt(), txt = " + txt);
@@ -218,11 +217,11 @@ public class FZHelper {
 
 
     /**
-     * 执行系统事件
+     * Execution of system events
      *
      * @param service AccessibilityService
-     * @param action  事件
-     * @return 成功与失败
+     * @param action  events
+     * @return Success and failure
      */
     public static boolean systemEvent(AccessibilityService service, int action) {
         if (null == service) return false;
@@ -230,12 +229,12 @@ public class FZHelper {
     }
 
     /**
-     * 根据View id执行任意事件
+     * Execute arbitrary events according to View ID
      *
      * @param service AccessibilityService
      * @param id      View id
      * @param action  事件
-     * @return 成功与失败
+     * @return Success and failure
      */
     public static boolean viewActionById(AccessibilityService service, String id, int action) {
         List<AccessibilityNodeInfo> nodes = getNodesForId(service, id);
@@ -250,11 +249,11 @@ public class FZHelper {
     }
 
     /**
-     * 根据View的ID获取View的文字
+     * Get the text of View based on the ID of View
      *
      * @param service AccessibilityService
      * @param id      View id
-     * @return 文字结果
+     * @return Text results
      */
     public static String viewTextById(AccessibilityService service, String id) {
         List<AccessibilityNodeInfo> nodes = getNodesForId(service, id);
