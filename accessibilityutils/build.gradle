@@ -1,0 +1,59 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+//    compile 'com.bbsz.sky2:smallWeb:1.0.1'
+//    compile 'com.bbsz.sky:WebViewUI:1.0.3'
+}
+
+
+
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'accessibilityutils'                                //项目名字
+
+    publishedGroupId = 'com.bbsz.accessibilityutils'                //GroupId,这个要别人引用的时候会用到，
+    libraryName = 'accessibilityutils'                         //这个是项目名字
+    artifact = 'accessibilityutils'                                   //artifactId，这个也是别人引用的时候，会用到，它要和Module名字一样
+
+    libraryDescription = 'Accessibility Utils'       //项目描述
+
+    siteUrl = 'https://github.com/Jiangxuewu/AccessibilityUtils'          //把项目分享到github后的项目地址
+    gitUrl = 'https://github.com/Jiangxuewu/AccessibilityUtils.git'       //分享后的项目git地址
+
+    libraryVersion = '1.0.0'
+    developerId = 'com.bb-sz.dev'                             //这个开发者id，自己写
+    developerName = 'skycar'                           //这个是开发者名字
+    developerEmail = 'dev@bb-sz.com'                    //开发者邮箱
+
+    licenseName = 'The Apache Software License, Version 2.0'     //开源协议
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+    user="${bintrayUser}"
+    apikey="${bintrayApikey}"
+}
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
